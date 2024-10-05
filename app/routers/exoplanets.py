@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+
 from app.fixtures.collector import MOCKED_EXOPLANETS
 from app.models import Exoplanet, Star
 
