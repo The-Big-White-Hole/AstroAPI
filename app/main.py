@@ -1,8 +1,10 @@
 import os
 from fastapi import FastAPI
+
+from app.constants import FAPI_ROOT_PATH
 from app.routers import stars, exoplanets
 
-app = FastAPI()
+app = FastAPI(root_path=FAPI_ROOT_PATH)
 
 app.include_router(stars.router)
 app.include_router(exoplanets.router)
