@@ -27,4 +27,4 @@ COPY --from=builder --chown=app:app /app/.venv /app/.venv /app/ /app/
 ENV PATH="/app/.venv/bin:$PATH"
 
 # Run the application
-CMD ["fastapi", "run", "/app/app/main.py", "--port", "80", "--proxy-headers"]
+CMD ["fastapi", "run", "/app/app/main.py", "--port", "8090", "--proxy-headers"]

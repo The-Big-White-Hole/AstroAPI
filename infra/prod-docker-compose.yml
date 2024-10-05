@@ -1,0 +1,43 @@
+services:
+  db:
+    image: postgres:15
+    env_file: "../.env"
+    container_name: astrosky_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ..
+      dockerfile: ../Dockerfile
+    env_file: "../.env"
+    container_name: astrosky_backend
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:1.27
+    container_name: astrosky_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8090:8090"
+
+    env_file: "../.env"
+    volumes:
+      - ./default.conf:/etc/nginx/templates/default.conf.template
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
+    depends_on:
+      - certbot
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
+
+
+
+volumes:
+  pgdata:
