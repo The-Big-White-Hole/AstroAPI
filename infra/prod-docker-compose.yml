@@ -8,10 +8,13 @@ services:
 
   backend:
     build:
-      context: ..
-      dockerfile: ../Dockerfile
+      context: ../
+      dockerfile: Dockerfile
     env_file: "../.env"
     container_name: astrosky_backend
+    hostname: astroapi
+    ports:
+      - "8090:8090"
     depends_on:
       - db
 
@@ -21,22 +24,12 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8090:8090"
 
     env_file: "../.env"
     volumes:
       - ./default.conf:/etc/nginx/templates/default.conf.template
-      - ./certbot/www:/var/www/certbot/:ro
-      - ./certbot/conf/:/etc/nginx/ssl/:ro
-    depends_on:
-      - certbot
-
-  certbot:
-    image: certbot/certbot:latest
-    volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/letsencrypt/:rw
-
+      - /etc/letsencrypt/archive/exosky.earth/fullchain1.pem:/etc/ssl/fullchain1.pem
+      - /etc/letsencrypt/archive/exosky.earth/privkey1.pem:/etc/ssl/privkey1.pem
 
 
 volumes:
