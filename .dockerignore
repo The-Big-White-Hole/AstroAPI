@@ -270,6 +270,9 @@ pyvenv.cfg
 .venv
 pip-selfcheck.json
 
+
+data/tycho-voidmain.csv
+
 ### TeX template
 ## Core latex/pdflatex auxiliary files:
 *.aux

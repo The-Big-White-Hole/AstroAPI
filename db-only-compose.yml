@@ -5,17 +5,8 @@ services:
     container_name: exosky_db
     volumes:
       - pgdata:/var/lib/postgresql/data
-
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    env_file: ".env"
-    container_name: exosky_db
     ports:
-      - "80:80"
-    depends_on:
-      - db
+      - "5432:5432"
 
 volumes:
   pgdata:

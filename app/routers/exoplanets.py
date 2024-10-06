@@ -6,8 +6,6 @@ from app.models import Exoplanet, Star
 router = APIRouter()
 
 
-
-
 @router.get("/exoplanets")
 async def get_exoplanets() -> list[Exoplanet]:
     """

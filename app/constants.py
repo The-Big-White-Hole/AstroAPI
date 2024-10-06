@@ -6,5 +6,6 @@ DATA_PATH = ROOT_PATH / "data"
 
 PLANETS_FILE_PATH = DATA_PATH / "planets.csv"
 STARS_FILE_PATH = DATA_PATH / "stars.csv"
+TYCHO_FILE_PATH = DATA_PATH / "tycho-voidmain.csv"
 
 FAPI_ROOT_PATH = "/api/v1"

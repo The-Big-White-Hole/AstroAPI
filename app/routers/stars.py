@@ -7,7 +7,9 @@ router = APIRouter()
 
 
 @router.get("/stars")
-def get_stars(count: int = Query(100, title="Number of Stars", ge=1, le=10000)) -> list[Star]:
+def get_stars(
+    count: int = Query(100, title="Number of Stars", ge=1, le=10000),
+) -> list[Star]:
     """
     Returns array of stars and their coordinates.
     Parameters:

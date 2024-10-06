@@ -7,8 +7,10 @@ class CelestialObject(BaseModel):
     right_ascension: float
     name: str
 
+
 class Exoplanet(CelestialObject):
     distance_light_years: float
+
 
 class Star(CelestialObject):
     apparent_magnitude: float

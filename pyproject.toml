@@ -5,7 +5,12 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "connectorx>=0.3.3",
     "fastapi[standard]>=0.115.0",
+    "pandas>=2.2.3",
     "polars>=1.9.0",
+    "psycopg2>=2.9.9",
+    "pyarrow>=17.0.0",
     "ruff>=0.6.9",
+    "sqlalchemy>=2.0.35",
 ]
