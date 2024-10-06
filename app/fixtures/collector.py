@@ -36,15 +36,15 @@ def get_star_from_entry(star_entry):
 
 
 MOCKED_EXOPLANETS = []
-
-for planet_entry in planets_df.iter_rows(named=True):
-    MOCKED_EXOPLANETS.append(get_exoplanet_from_entry(planet_entry))
-
-
-stars_df = pl.read_csv(app.constants.STARS_FILE_PATH)
-
-
+#
+# for planet_entry in planets_df.iter_rows(named=True):
+#     MOCKED_EXOPLANETS.append(get_exoplanet_from_entry(planet_entry))
+#
+#
+# stars_df = pl.read_csv(app.constants.STARS_FILE_PATH)
+#
+#
 MOCKED_STARS = []
-
-for star_entry in stars_df.iter_rows(named=True):
-    MOCKED_STARS.append(get_star_from_entry(star_entry))
+#
+# for star_entry in stars_df.iter_rows(named=True):
+#     MOCKED_STARS.append(get_star_from_entry(star_entry))
